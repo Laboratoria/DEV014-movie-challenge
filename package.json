@@ -1,0 +1,27 @@
+{
+    "name": "dev014-movie-challenge",
+    "version": "1.0.0",
+    "description": "Your project description",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "serve src/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Your Name",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.6.2",
+        "@babel/plugin-transform-modules-commonjs": "^7.24.1",
+        "@playwright/test": "^1.36.1",
+        "acorn": "^8.8.2",
+        "babel-jest": "^27.0.1",
+        "css": "^3.0.0",
+        "eslint": "^8.57.0",
+        "gh-pages": "^3.1.0",
+        "htmlhint": "^1.0.0",
+        "jest": "^27.0.1",
+        "jsdom": "^22.1.0",
+        "opener": "^1.5.1",
+        "serve": "^14.2.1"
+    }
+}
