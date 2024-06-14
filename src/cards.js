@@ -1,23 +1,21 @@
-export function createCards(dataResult) {
-  const divRoot = document.getElementById('root');
+export function createCards(dataResult, onMovieClick) {
   const ulElement = document.createElement('ul');
-  ulElement.classList.add('movie-grid'); // Añade la clase para el grid
-
-  divRoot.innerHTML = ''; // Elimina todos los hijos del nodo 'root'
+  ulElement.classList.add('movie-grid');
 
   dataResult.forEach(item => {
     const liElement = document.createElement('li');
     liElement.classList.add('card');
+    liElement.addEventListener('click', () => onMovieClick(item.id)); // Add click event
 
     const imagePoster = document.createElement('img');
     imagePoster.src = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
     imagePoster.alt = item.original_title;
-    imagePoster.classList.add('poster'); // Añado la clase para el estilo de la imagen
+    imagePoster.classList.add('poster');
 
-    const originalTitle = document.createElement('h2'); // Creo los elementos de HTML para el contenido de cada item
+    const originalTitle = document.createElement('h2');
     originalTitle.textContent = item.original_title;
 
-    const releaseYear = item.release_date.split('-')[0];// Necesito mostrar solo el año de release_date, no la fecha completa
+    const releaseYear = item.release_date.split('-')[0];
     const releaseDate = document.createElement('p');
     releaseDate.textContent = releaseYear;
 
@@ -26,6 +24,5 @@ export function createCards(dataResult) {
     liElement.appendChild(releaseDate);
     ulElement.appendChild(liElement);
   });
-
-  divRoot.appendChild(ulElement); // Añade la lista al div root
+  return ulElement;
 }

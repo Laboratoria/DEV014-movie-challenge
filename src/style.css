@@ -1,10 +1,9 @@
-/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #272727; /* Establece el color de fondo */
-    color: #ffffff; /* Establece el color del texto */
+    background-color: #272727; 
+    color: #ffffff;
 }
 
 header {
@@ -21,7 +20,6 @@ header {
     padding: 1rem;
     list-style: none;
     margin: 0;
-    padding: 0;
 }
 
 .card {
@@ -32,13 +30,14 @@ header {
     overflow: hidden;
     text-align: center;
     padding: 1rem;
-    color: #000; /* Establece el color del texto de las tarjetas a negro */
+    color: #000; /* color del texto de las tarjetas a negro */
+    cursor: pointer;
 }
 
 .card img.poster {
     width: 100%;
     height: 300px; /* Ajusta este valor según necesites */
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    object-fit: cover; /* imagen cubre el área sin distorsionarse */
     border-bottom: 1px solid #ddd;
 }
 
@@ -51,4 +50,72 @@ header {
     color: #555;
     font-size: 1rem;
     margin: 0.5rem 0;
+}
+
+.movie-details {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 2rem;
+}
+
+.movie-details .poster {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.movie-details h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.movie-details p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #ddd;
+}
+
+.movie-details button#backButton {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.movie-details button#backButton:hover {
+    background-color: #777;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.pagination button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:hover {
+    background-color: #555;
+}
+
+.pagination button.active {
+    background-color: #555;
+    font-weight: bold;
 }
