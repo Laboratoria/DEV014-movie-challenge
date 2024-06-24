@@ -5,7 +5,7 @@ export function createCards(dataResult, onMovieClick) {
   dataResult.forEach(item => {
     const liElement = document.createElement('li');
     liElement.classList.add('card');
-    liElement.addEventListener('click', () => onMovieClick(item.id)); // Add click event
+    liElement.addEventListener('click', () => onMovieClick(item.id));
 
     const imagePoster = document.createElement('img');
     imagePoster.src = `https://image.tmdb.org/t/p/w500${item.poster_path}`;

@@ -1,22 +1,21 @@
 {
     "env": {
-        "browser": true,
-        "jest": true
+      "browser": true,
+      "es2021": true
     },
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
     "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
-    "extends": "eslint:recommended",
+    "plugins": [
+      "prettier"
+    ],
     "rules": {
-        "no-console": "warn",
-        "import/extensions": 0,
-        "no-var": "error",
-        "prefer-const": "error",
-        "eqeqeq": "error",
-        "indent": [
-            "error",
-            2
-        ]
+      "prettier/prettier": "error"
     }
-}
+  }
+  

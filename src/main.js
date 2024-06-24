@@ -1,15 +1,29 @@
-import { fetchMovies } from './Api.js';
+import { fetchMovies, fetchGenres } from './Api.js';
 import { createCards } from './cards.js';
 import { showMovieDetails } from './details.js';
 
 const apiKey = "09e6da3af06aae9bf2a911affce95600";
 
 const state = {
-  currentPage: 1
+  currentPage: 1,
+  selectedGenre: '',
+  sortBy: 'popularity.desc'
 };
 
-async function loadMovies(page) {
-  const data = await fetchMovies(apiKey, page);
+async function loadGenres() {
+  const genres = await fetchGenres(apiKey);
+  const genreSelect = document.getElementById('genreSelect');
+  genres.forEach(genre => {
+    const option = document.createElement('option');
+    option.value = genre.id;
+    option.textContent = genre.name;
+    genreSelect.appendChild(option);
+  });
+}
+
+async function loadMovies() {
+  const { currentPage, selectedGenre, sortBy } = state;
+  const data = await fetchMovies(apiKey, currentPage, selectedGenre, sortBy);
   const divRoot = document.getElementById('root');
   divRoot.innerHTML = ''; // Clear the root
 
@@ -22,6 +36,18 @@ async function loadMovies(page) {
 
 function handleMovieClick(movieId) {
   showMovieDetails(apiKey, movieId);
+}
+
+function handleGenreChange(event) {
+  state.selectedGenre = event.target.value;
+  state.currentPage = 1;
+  loadMovies();
+}
+
+function handleSortChange(event) {
+  state.sortBy = event.target.value;
+  state.currentPage = 1;
+  loadMovies();
 }
 
 function createPagination(totalPages, currentPage) {
@@ -37,18 +63,16 @@ function createPagination(totalPages, currentPage) {
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
   }
 
-  // Botón "Anterior"
   if (state.currentPage > 1) {
     const prevButton = document.createElement('button');
     prevButton.textContent = 'Previous';
     prevButton.addEventListener('click', () => {
       state.currentPage--;
-      loadMovies(state.currentPage);
+      loadMovies();
     });
     paginationDiv.appendChild(prevButton);
   }
 
-  // Botones de páginas
   for (let i = startPage; i <= endPage; i++) {
     const pageButton = document.createElement('button');
     pageButton.textContent = i;
@@ -56,19 +80,18 @@ function createPagination(totalPages, currentPage) {
     pageButton.addEventListener('click', () => {
       if (i !== state.currentPage) {
         state.currentPage = i;
-        loadMovies(state.currentPage);
+        loadMovies();
       }
     });
     paginationDiv.appendChild(pageButton);
   }
 
-  // Botón "Siguiente"
   if (state.currentPage < totalPages) {
     const nextButton = document.createElement('button');
     nextButton.textContent = 'Next';
     nextButton.addEventListener('click', () => {
       state.currentPage++;
-      loadMovies(state.currentPage);
+      loadMovies();
     });
     paginationDiv.appendChild(nextButton);
   }
@@ -76,4 +99,8 @@ function createPagination(totalPages, currentPage) {
   return paginationDiv;
 }
 
-loadMovies(state.currentPage);
+document.getElementById('genreSelect').addEventListener('change', handleGenreChange);
+document.getElementById('sortSelect').addEventListener('change', handleSortChange);
+
+loadGenres();
+loadMovies();
