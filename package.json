@@ -1,0 +1,54 @@
+{
+    "name": "dev014-movie-challenge",
+    "version": "1.0.0",
+    "description": "Your project description",
+    "main": "src/main.js",
+"scripts": {
+  "test": "jest --verbose --coverage test/",
+  "start": "serve src/",
+  "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+  "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+  "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\""
+},
+    "author": "Your Name",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.6.2",
+        "@babel/plugin-transform-modules-commonjs": "^7.24.1",
+        "@eslint/compat": "^1.1.0",
+        "@eslint/config-array": "^0.16.0",
+        "@eslint/js": "^9.5.0",
+        "@eslint/object-schema": "^2.1.4",
+        "@playwright/test": "^1.36.1",
+        "acorn": "^8.8.2",
+        "babel-jest": "^27.0.1",
+        "css": "^3.0.0",
+        "eslint": "^9.5.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-jest": "^28.6.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-react": "^7.34.2",
+        "gh-pages": "^6.1.1",
+        "globals": "^15.6.0",
+        "htmlhint": "^1.0.0",
+        "jest": "^27.0.1",
+        "jsdom": "^22.1.0",
+        "opener": "^1.5.1",
+        "prettier": "^3.3.2",
+        "serve": "^14.2.1"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "verbose": true,
+        "coverageDirectory": "coverage",
+        "collectCoverageFrom": [
+            "src/**/*.js"
+        ],
+        "testMatch": [
+            "<rootDir>/test/**/*.spec.js"
+        ]
+    },
+    "dependencies": {
+        "node-fetch": "^3.3.2"
+    }
+}

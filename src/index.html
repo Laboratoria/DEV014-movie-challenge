@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Challenge</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Movie Challenge</h1>
+        <div>
+            <label for="genreSelect">Filtrar por género:</label>
+            <select id="genreSelect">
+                <!-- Los géneros se agregarán dinámicamente -->
+            </select>
+
+            <label for="sortSelect">Ordenar por:</label>
+            <select id="sortSelect">
+                <option value="popularity.desc">Popularidad</option>
+                <option value="release_date.desc">Fecha de estreno</option>
+                <option value="vote_average.desc">Puntuación</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="root"></div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Javiera Ferrada DEV014 Laboratoria</p>
+        </div>
+    </footer>
+    
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
+
